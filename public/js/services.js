@@ -1,20 +1,17 @@
 angular
     .module('myApp')
-    .factory('Auth', AuthService)
-    .factory('Chat', Chat)
-    .factory('Online', Online);
-//
-// app.factory("chatMessages", ["$firebaseArray", function ($firebaseArray) {
-//     var ref = firebase.database().ref('messages').limitToLast(10);
-//     var allMessages = $firebaseArray(ref);
-//     return {
-//         all: allMessages,
-//         create: function (message) {
-//             return allMessages.$add(message);
-//         }
-//     }
-// }
-// ]);
+    .factory("ChatMessages", ["$firebaseArray", function ($firebaseArray,req) {
+        var db = req.db;
+        var ref = db.ref('messages').limitToLast(10);
+        var allMessages = $firebaseArray(ref);
+        return {
+            all: allMessages,
+            create: function (message) {
+                return allMessages.$add(message);
+        }
+    }
+}
+]);
 //
 // app.factory("Auth", ["$firebaseAuth",
 //     function($firebaseAuth) {

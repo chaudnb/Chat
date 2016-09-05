@@ -1,5 +1,12 @@
 var firebase = require('firebase');
-var mesRef = firebase.database().ref('messages');/**
- * Created by Chau on 8/30/2016.
- */
-module.exports(mesRef);
+
+var config = {
+    apiKey: "AIzaSyBgLcRAIXVuM6ZzOuNeicKWtZZi6h6fgy0",
+    authDomain: "mychat2-bf778.firebaseapp.com",
+    databaseURL: "https://mychat2-bf778.firebaseio.com",
+    storageBucket: "mychat2-bf778.appspot.com"
+};
+
+firebase.initializeApp(config);
+var db = firebase.database();
+module.exports(db);

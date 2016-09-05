@@ -23,7 +23,7 @@ angular
         })
         .state('login', {
             url: '/login',
-            templateUrl: 'pages/login.ejs',
+            templateUrl: 'pages/login.html',
             controller: 'LoginController as login'
         })
         .state('ao', {
@@ -33,7 +33,7 @@ angular
         })
         .state('chat', {
             url: '/chat',
-            templateUrl: 'pages/chat.ejs',
+            templateUrl: 'pages/chat.html',
             //controller: 'AoController as ao'
         })
         .state('logout', {

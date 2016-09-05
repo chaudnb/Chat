@@ -18,17 +18,22 @@ angular
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'pages/home.ejs'
-            //controller: 'HomeController as home'
+            templateUrl: 'pages/home.html',
+            controller: 'HomeController as home'
         })
         .state('login', {
             url: '/login',
-            templateUrl: 'pages/login.ejs'
-            //controller: 'LoginController as login'
+            templateUrl: 'pages/login.ejs',
+            controller: 'LoginController as login'
         })
         .state('ao', {
             url: '/ao',
-            templateUrl: 'pages/ao.ejs'
+            templateUrl: 'pages/ao.html',
+            //controller: 'AoController as ao'
+        })
+        .state('chat', {
+            url: '/chat',
+            templateUrl: 'pages/chat.ejs',
             //controller: 'AoController as ao'
         })
         .state('logout', {

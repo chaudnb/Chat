@@ -7,10 +7,21 @@ var router = express.Router();
 // });
 //
 //
-// router.get('/ao', function (req, res, next) {
-//     res.render('pages/ao', {title: 'Ao Page'});
-// });
+// router.get('/chat', function (req, res) {
+//     var db = req.db;
+//     var messages = [];
+//     var mesRef = db.ref('messages').limitToLast(10);
+//     mesRef.on('value', function (snapshot) {
+//         snapshot.forEach(function(childSnapshot) {
+//             var result = childSnapshot.val();
+//             messages.push(result);
+//         });
+//         console.log(messages);
+//         res.render('pages/chat', {title: 'Ao Page', "messages" : messages });
+//     });
 //
+// });
+
 // router.get('/about', function (req, res, next) {
 //     res.render('pages/login', {title: 'Login Page'});
 // });

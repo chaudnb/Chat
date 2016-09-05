@@ -11,36 +11,37 @@ function MainController($scope) {
 
 }
 
-function HomeController($scope,chatMessages,$cookies) {
-    var cookieWObject = $cookies.getObject('cookieName');
-    if(cookieWObject == null){
-        var obj = {
-            currentUser: {
-                username: "Guest" + Math.round(Math.random() * 10000)
-            }
-        };
-        $cookies.putObject('cookieName', obj);
-    }
-    $scope.user = cookieWObject.currentUser;
-
-    $scope.messages = chatMessages.all;
-
-    $scope.addMessage = function (message) {
-
-        message = {
-            uid:$scope.user.username,
-            from: "Guest",
-            content: $scope.message,
-            createdDate: new Date().getTime()
-        };
-        chatMessages.create(message);
-
-        $scope.message = "";
-    };
-
-    $scope.delMes = function (message) {
-        chatMessages.deleteMes(message);
-    }
+function HomeController($scope) {
+    $scope.test = "test test test";
+    // var cookieWObject = $cookies.getObject('cookieName');
+    // if(cookieWObject == null){
+    //     var obj = {
+    //         currentUser: {
+    //             username: "Guest" + Math.round(Math.random() * 10000)
+    //         }
+    //     };
+    //     $cookies.putObject('cookieName', obj);
+    // }
+    // $scope.user = cookieWObject.currentUser;
+    //
+    // $scope.messages = chatMessages.all;
+    //
+    // $scope.addMessage = function (message) {
+    //
+    //     message = {
+    //         uid:$scope.user.username,
+    //         from: "Guest",
+    //         content: $scope.message,
+    //         createdDate: new Date().getTime()
+    //     };
+    //     chatMessages.create(message);
+    //
+    //     $scope.message = "";
+    // };
+    //
+    // $scope.delMes = function (message) {
+    //     chatMessages.deleteMes(message);
+    // }
 }
 
 function LoginController($scope,$state) {
@@ -100,23 +101,10 @@ function LogoutController($state) {
         console.log(error);
         $state.go('login');
     });
-    // if (firebase.auth().currentUser) {
-    //     // [START signout]
-    //     firebase.auth().signOut();
-    //     // [END signout]
-    //     $state.go('home');
-    // }else{
-    //     $state.go('login');
-    // }
-    // firebase.auth().onAuthStateChanged(function (user) {
-    //     if (user) {
-    //         firebase.auth().signOut();
-    //         $state.go('home');
-    //     }
-    // });
+
 }
 
-function AoController($scope,$firebaseArray,$state,CurrentOnline) {
+function AoController($scope,$firebaseArray,$state) {
     // $scope.user = firebase.auth().currentUser;
     var email = "";
     firebase.auth().onAuthStateChanged(function (user) {

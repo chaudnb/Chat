@@ -1,9 +1,11 @@
+
 angular
     .module('myApp', [
         'ui.router',                    // Routing
         //'oc.lazyLoad',                  // ocLazyLoad
         //'ui.bootstrap',                 // Ui Bootstrap
-        'ngCookies'
+        'ngCookies',
+        'firebase'
     ])
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -29,7 +31,7 @@ angular
         .state('ao', {
             url: '/ao',
             templateUrl: 'pages/ao.html',
-            //controller: 'AoController as ao'
+            controller: 'AoController as ao'
         })
         .state('chat', {
             url: '/chat',
